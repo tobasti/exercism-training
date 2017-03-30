@@ -1,5 +1,12 @@
 # Calculate the moment when someone has lived for 10^9 seconds. 
 # A gigasecond is 10^9 (1,000,000,000) seconds.
 
+module BookKeeping
+  VERSION = 5 # Where the version number matches the one in the test.
+end
+ 
 class Gigasecond
+ def self.from(date)
+   date + 1_000_000_000
+ end 
 end
