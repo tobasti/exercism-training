@@ -8,7 +8,7 @@ class Hamming
       raise ArgumentError, "Can't compute. Hamming distance for two strings of differing length is not defined.\nPlease input two Strings of the same length!"
     else 
       result = 0
-      for i in (0..str_a.length)
+      (0...str_a.length).each do |i|
         result+=1 if str_a[i] != str_b[i]
       end
       return result
