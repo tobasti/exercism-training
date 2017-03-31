@@ -3,7 +3,13 @@ module BookKeeping
 end
 
 class Complement
+
+  COMPLEMENTS = {'G' => 'C', 'C' => 'G', 'T' => 'A', 'A' => 'U'}
+
   def self.of_dna
+  end
+
+  def check_input
   end
 end
 
