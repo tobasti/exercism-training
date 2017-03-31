@@ -3,15 +3,15 @@ module BookKeeping
 end
 
 class Hamming
-  def self.compute(str_a, str_b)
-    if str_a.length != str_b.length
-      raise ArgumentError, "Can't compute. Hamming distance for two strings of differing length is not defined.\nPlease input two Strings of the same length!"
-    else 
-      result = 0
-      (0...str_a.length).each do |i|
-        result+=1 if str_a[i] != str_b[i]
+  def self.compute(strand_a, strand_b)
+    unless strand_a.length == strand_b.length
+      raise ArgumentError, "Can't compute. Hamming distance for two strings of \
+        differing length is not defined.\n\
+        Please input two Strings of the same length!"
+    else
+      strand_a.chars.zip(strand_b.chars).count do |element_a, element_b|
+        element_a != element_b
       end
-      return result
     end
   end
 end
