@@ -7,10 +7,8 @@ class Complement
   COMPLEMENTS = {'G' => 'C', 'C' => 'G', 'T' => 'A', 'A' => 'U'}
 
   def self.of_dna(strand)
-    strand.chars.map do |nucleotid|
-      return '' unless COMPLEMENTS.key?(nucleotid)
-      COMPLEMENTS[nucleotid]
-    end.join
+    return '' unless strand =~ /^[GCTA]*$/
+    strand.chars.map { |nucleotid| COMPLEMENTS[nucleotid]}.join
   end
 
   def check_input
