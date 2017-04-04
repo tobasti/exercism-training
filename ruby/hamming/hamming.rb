@@ -3,19 +3,19 @@ module BookKeeping
 end
 
 class Hamming
-  def self.compute(strand_a, strand_b)
+  def self.compute(strand_1, strand_2)
 
-    error_argument = <<~message_text
+    error_message = <<~message_text
         Can't compute. Hamming distance for two strings of \
         differing length is not defined.\n\
         Please input two Strings of the same length!
     message_text
 
-    raise ArgumentError, error_argument unless strand_a.length == strand_b.length
-    
+    raise ArgumentError, error_message unless strand_1.length == strand_2.length
+
     # if all is well
-    strand_a.chars.zip(strand_b.chars).count do |element_a, element_b|
-      element_a != element_b
-    end
+    mutations = lambda { |nucletide_1, nucletide_2| nucletide_1 != nucletide_2 }
+
+    strand_1.chars.zip(strand_2.chars).count(&mutations)
   end
 end
